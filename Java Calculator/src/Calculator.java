@@ -21,6 +21,10 @@ public class Calculator implements ActionListener {
 
     JButton multiplyButton , divisionButton,plusButton,minusButton,clearButton;
 
+    boolean isOperatorClicked=false;
+    String oldValue,newValue;
+    float oldValueF = 0;
+
     public Calculator(){
         //Calculator Body
         jf = new JFrame("Calculator");
@@ -121,26 +125,31 @@ public class Calculator implements ActionListener {
         divisionButton =new JButton("÷");
         divisionButton.setBounds(330,130,80,80);
         divisionButton.setFont(new Font("Arial",Font.PLAIN,40));
+        divisionButton.addActionListener(this);
         jf.add(divisionButton);
 
         multiplyButton =new JButton("x");
         multiplyButton.setBounds(330,230,80,80);
         multiplyButton.setFont(new Font("Arial",Font.PLAIN,40));
+        multiplyButton.addActionListener(this);
         jf.add(multiplyButton);
 
         minusButton =new JButton("-");
         minusButton.setBounds(330,330,80,80);
         minusButton.setFont(new Font("Arial",Font.PLAIN,40));
+        minusButton.addActionListener(this);
         jf.add(minusButton);
 
         plusButton =new JButton("+");
         plusButton.setBounds(330,430,80,80);
         plusButton.setFont(new Font("Arial",Font.PLAIN,40));
+        plusButton.addActionListener(this);
         jf.add(plusButton);
 
         clearButton =new JButton("+");
         clearButton.setBounds(330,430,80,80);
         clearButton.setFont(new Font("Arial",Font.PLAIN,40));
+        clearButton.addActionListener(this);
         jf.add(clearButton);
 
 
@@ -157,35 +166,90 @@ public class Calculator implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         if (actionEvent.getSource()==oneButton){
-            displayLabel.setText(displayLabel.getText()+"1");
+            if (isOperatorClicked==true){
+                displayLabel.setText("1");
+                isOperatorClicked=false;
+            }else{
+                displayLabel.setText(displayLabel.getText()+"1");
+            }
         }else if (actionEvent.getSource()==twoButton){
-            displayLabel.setText(displayLabel.getText()+"2");
+            if (isOperatorClicked==true){
+                displayLabel.setText("2");
+                isOperatorClicked=false;
+            }else {
+                displayLabel.setText(displayLabel.getText()+"2");
+            }
         }else if (actionEvent.getSource()==threeButton){
-            displayLabel.setText(displayLabel.getText()+"3");
+            if (isOperatorClicked==true){
+                displayLabel.setText("3");
+                isOperatorClicked=false;
+            }else {
+                displayLabel.setText(displayLabel.getText()+"3");
+            }
         } else if (actionEvent.getSource()==fourButton) {
-            displayLabel.setText(displayLabel.getText()+"4");
+            if (isOperatorClicked==true){
+                displayLabel.setText("4");
+                isOperatorClicked=false;
+            }else {
+                displayLabel.setText(displayLabel.getText()+"4");
+            }
         } else if (actionEvent.getSource()==fiveButton) {
-            displayLabel.setText(displayLabel.getText()+"5");
+            if (isOperatorClicked==true){
+                displayLabel.setText("5");
+                isOperatorClicked=false;
+            }else {
+                displayLabel.setText(displayLabel.getText()+"5");
+            }
         } else if (actionEvent.getSource()==sixButton) {
-            displayLabel.setText(displayLabel.getText()+"6");
+            if (isOperatorClicked==true){
+                displayLabel.setText("6");
+                isOperatorClicked=false;
+            }else {
+                displayLabel.setText(displayLabel.getText()+"6");
+            }
         } else if (actionEvent.getSource()==sevenButton) {
-            displayLabel.setText(displayLabel.getText()+"7");
+            if (isOperatorClicked==true){
+                displayLabel.setText("7");
+                isOperatorClicked=false;
+            }else {
+                displayLabel.setText(displayLabel.getText()+"7");
+            }
         } else if (actionEvent.getSource()==eightButton) {
-            displayLabel.setText(displayLabel.getText()+"8");
-        } else if (actionEvent.getSource()==nineButton) {
-            displayLabel.setText(displayLabel.getText()+"9");
-        } else if (actionEvent.getSource()==zeroButton) {
-            displayLabel.setText(displayLabel.getText()+"0");
+            if(isOperatorClicked==true){
+                displayLabel.setText("8");
+                isOperatorClicked=false;
+            }else{
+                displayLabel.setText(displayLabel.getText()+"8");
+            }
+        } else if(actionEvent.getSource()==nineButton) {
+            if (isOperatorClicked==true){
+                displayLabel.setText("9");
+                isOperatorClicked=false;
+            }else {
+                displayLabel.setText(displayLabel.getText()+"9");
+            }
+        } else if(actionEvent.getSource()==zeroButton) {
+            if (isOperatorClicked==true){
+                displayLabel.setText("0");
+                isOperatorClicked=false;
+            }else {
+                displayLabel.setText(displayLabel.getText()+"0");
+            }
         } else if (actionEvent.getSource()==dotButton) {
-            displayLabel.setText(".");
+            if (isOperatorClicked==true){
+                displayLabel.setText("0.");
+                isOperatorClicked=false;
+            }else {
+                displayLabel.setText(displayLabel.getText()+".");
+            }
         } else if (actionEvent.getSource()==plusButton) {
-            
+            isOperatorClicked=true;
         } else if (actionEvent.getSource()==minusButton) {
-            
+            isOperatorClicked=true;
         } else if (actionEvent.getSource()==divisionButton) {
-            
+            isOperatorClicked=true;
         } else if (actionEvent.getSource()==multiplyButton) {
-            
+            isOperatorClicked=true;
         } else if (actionEvent.getSource()==equalButton) {
             
         } else if (actionEvent.getSource()==clearButton) {
