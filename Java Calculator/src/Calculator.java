@@ -23,7 +23,8 @@ public class Calculator implements ActionListener {
 
     boolean isOperatorClicked=false;
     String oldValue,newValue;
-    float oldValueF = 0;
+    float oldValueF,result;
+    float operatorVariable=0;
 
     public Calculator(){
         //Calculator Body
@@ -244,16 +245,73 @@ public class Calculator implements ActionListener {
             }
         } else if (actionEvent.getSource()==plusButton) {
             isOperatorClicked=true;
+            oldValue=displayLabel.getText();
+            oldValueF=Float.parseFloat(oldValue);
+            float result = addition(oldValueF);
+            displayLabel.setText(result+"");
         } else if (actionEvent.getSource()==minusButton) {
             isOperatorClicked=true;
+            oldValue=displayLabel.getText();
+            oldValueF=Float.parseFloat(oldValue);
+            float result = subtraction(oldValueF);
+            displayLabel.setText(result+"");
         } else if (actionEvent.getSource()==divisionButton) {
             isOperatorClicked=true;
+            oldValue=displayLabel.getText();
+            oldValueF=Float.parseFloat(oldValue);
+            result = division(oldValueF);
+            displayLabel.setText(result+"");
         } else if (actionEvent.getSource()==multiplyButton) {
             isOperatorClicked=true;
+            oldValue=displayLabel.getText();
+            oldValueF=Float.parseFloat(oldValue);
+            result = multiplication(oldValueF);
+            displayLabel.setText(result+"");
         } else if (actionEvent.getSource()==equalButton) {
-            
+            displayLabel.setText(result+"");
         } else if (actionEvent.getSource()==clearButton) {
             displayLabel.setText("");
         }
+    }
+
+
+    //addition
+    float addition(float number){
+        if (operatorVariable==0){
+            operatorVariable=oldValueF;
+        }else {
+            operatorVariable=operatorVariable+oldValueF;
+        }
+        return operatorVariable;
+    }
+
+    //subtraction
+    float subtraction(float number){
+        if (operatorVariable==0){
+            operatorVariable=oldValueF;
+        }else {
+            operatorVariable=operatorVariable-oldValueF;
+        }
+        return operatorVariable;
+    }
+
+    //multiplication
+    float multiplication(float number){
+        if (operatorVariable==0){
+            operatorVariable=oldValueF;
+        }else {
+            operatorVariable=operatorVariable*oldValueF;
+        }
+        return operatorVariable;
+    }
+
+    //division
+    float division(float number){
+        if (operatorVariable==0){
+            operatorVariable=oldValueF;
+        }else {
+            operatorVariable=operatorVariable/oldValueF;
+        }
+        return operatorVariable;
     }
 }
