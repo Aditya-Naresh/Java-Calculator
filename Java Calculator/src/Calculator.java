@@ -279,39 +279,47 @@ public class Calculator implements ActionListener {
     float addition(float number){
         if (operatorVariable==0){
             operatorVariable=oldValueF;
+            return operatorVariable;
         }else {
             operatorVariable=operatorVariable+oldValueF;
+            return operatorVariable;
         }
-        return operatorVariable;
+
     }
 
     //subtraction
     float subtraction(float number){
         if (operatorVariable==0){
             operatorVariable=oldValueF;
+            return operatorVariable;
         }else {
             operatorVariable=operatorVariable-oldValueF;
+            return operatorVariable;
         }
-        return operatorVariable;
+
     }
 
     //multiplication
     float multiplication(float number){
         if (operatorVariable==0){
             operatorVariable=oldValueF;
+            return operatorVariable;
         }else {
             operatorVariable=operatorVariable*oldValueF;
+            return operatorVariable;
         }
-        return operatorVariable;
+
     }
 
     //division
     float division(float number){
         if (operatorVariable==0){
             operatorVariable=oldValueF;
+            return operatorVariable;
         }else {
             operatorVariable=operatorVariable/oldValueF;
+            return operatorVariable;
         }
-        return operatorVariable;
+
     }
 }
